@@ -772,8 +772,7 @@
 <body>
   <audio id="birthday-song" loop preload="auto">
     <source src="birthdaysong.mp3" type="audio/mpeg" />
-    <source src="birthdaysong.ogg" type="audio/ogg" />
-    <source src="birthdaysong.wav" type="audio/wav" />
+    
   </audio>
 
   <audio id="slideshow-song" loop>
@@ -1110,10 +1109,15 @@ I love you so much DHUNDHUN 🩵🥺👄💋❤️.
       celebrationRemaining = 30;
       celebrationTimerEl.textContent = "Celebration ends in " + celebrationRemaining + " seconds...";
 
-      if (birthdaySong) {
-        birthdaySong.currentTime = 0;
-        birthdaySong.volume = 0.6;
-        birthdaySong.play().catch(() => {});
+      setTimeout(() => {
+        if (birthdaySong) {
+          birthdaySong.currentTime = 0;
+          birthdaySong.volume = 0.3;
+          birthdaySong.play().then(() => {
+            console.log("birthday song playing");
+            birthdaySong.volumme = 0.6;
+          });.catch((e) => {
+            console.log("song failed", e);});
       }
 
       if (celebrationInterval) clearInterval(celebrationInterval);
