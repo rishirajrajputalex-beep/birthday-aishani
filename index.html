@@ -997,19 +997,24 @@ I love you so much DHUNDHUN 🩵🥺👄💋❤️.
         if (el) el.classList.toggle("active", sid === id);
       });
     }
-
+   // COUNTDOWN - COMPLETE WORKING VERSION
+  (function() {
     const countdownNumberEl = document.getElementById("countdown-number");
     let countdownValue = 10;
-    let countdownInterval = null;
-    countdownTimer = setInterval(() =>{
+    let countdownTimerId = null;
+  
+    countdownTimerId = setInterval(function() {
       countdownValue--;
+      countdownNumberEl.textContent = countdownValue;
+    
       if (countdownValue <= 0) {
-        clearInterval(countdownInterval);
+        clearInterval(countdownTimerId);
         showScreen("screen-celebration");
         startCelebration();
       }
-      countdownNumberEl.textContent = countdownValue;
     }, 1000);
+  })();
+
 
     const birthdaySong = document.getElementById("birthday-song");
     const celebrationTimerEl = document.getElementById("celebration-timer");
