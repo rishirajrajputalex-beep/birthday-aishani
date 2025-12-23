@@ -980,7 +980,7 @@ I love you so much DHUNDHUN 🩵🥺👄💋❤️.
   </div>
 
   <script>
-    const screens = [
+     screens = [
       "screen-countdown",
       "screen-celebration",
       "screen-pin-quiz",
@@ -993,14 +993,15 @@ I love you so much DHUNDHUN 🩵🥺👄💋❤️.
 
     function showScreen(id) {
       screens.forEach((sid) => {
-        const el = document.getElementById(sid);
+         el = document.getElementById(sid);
         if (el) el.classList.toggle("active", sid === id);
       });
     }
 
     const countdownNumberEl = document.getElementById("countdown-number");
     let countdownValue = 10;
-    let countdownInterval = setInterval(() => {
+    let countdownInterval = null;
+    countdownTimer = setInterval(() =>{
       countdownValue--;
       if (countdownValue <= 0) {
         clearInterval(countdownInterval);
